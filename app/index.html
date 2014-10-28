@@ -24,12 +24,18 @@
   <body>
     <div class="container">
       <div class="listContainer">
-        <input id="newItem" placeholder="What do you need?" value=""/>
-        <button id="submit">Add</button>
+        <form class="input">
+          <input id="newItem" placeholder="What do you need?" value=""/>
+          <button id="submit">Add</button>
+        </form> <!-- end of list container -->
         <ul class="list">
         </ul>
-      </div> <!-- end of list container -->
+      </div> <!--listContainer-->
     </div>
+
+    <script type="text/template" id="item_template">
+      <li><%= task %></li>
+    </script>
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
