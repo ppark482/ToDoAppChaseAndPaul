@@ -8,12 +8,13 @@ var Kitty = function(options) {
 
 var lil_kitty;
 var todolist = [];
+var kitty_count = todolist.length;
+
 var input_stuff;
 var item_template = $('#item_template').html();
 var rendered = _.template(item_template);
 
 // Creates a new kitty (list) item
-
 $('.input').on('submit', function (event) {
   event.preventDefault();
 
@@ -39,3 +40,4 @@ $('.input').on('submit', function (event) {
 $('.list').on('click', '#delete', function() {
   $(this).parent().remove();
 });
+// How many kittys?
