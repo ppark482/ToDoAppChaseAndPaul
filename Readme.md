@@ -1,3 +1,5 @@
-## Yo, I'm a Readme
+## To-Do Application
 
-You should probably update me so people looking at your code have an idea what it is being used for :)
+# Built by:
+* Paul Park
+* Chase Simpson
