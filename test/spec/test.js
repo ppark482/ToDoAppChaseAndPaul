@@ -17,15 +17,21 @@
         expect(kitty).to.be.an.instanceof(Kitty);
       });
 
-    }); //kitty creation
+    }); // kitty creation
 
     describe('kitty properties', function () {
 
       it('should have completed of false', function() {
         expect(kitty.completed).to.equal(false);
       });
-
-    }); //kitty properties
+      it('should have task of a string', function() {
+        expect(kitty.task).to.have.string('');
+      });
+      it('should have elem of an object', function() {
+        expect(kitty.elem).to.be.an.object;
+      });
+    }); // kitty properties
+    
 
   }); //To Do List
 
