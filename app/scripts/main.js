@@ -1,1 +1,5 @@
-console.log('The Iron Yard Rocks');
+var Kitty = function(options) {
+  options = options || {};  
+};
+
+var kitty = new Kitty {};
