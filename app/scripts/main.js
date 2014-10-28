@@ -1,6 +1,7 @@
 var Kitty = function(options) {
   options = options || {};
   this.completed = options.completed || false;
+  this.deleted = options.deleted || false;
   this.task = options.task || 'Nothing was entered';
   this.elem = options.elem || {};
 };
@@ -11,6 +12,7 @@ var input_stuff;
 var item_template = $('#item_template').html();
 var rendered = _.template(item_template);
 
+// Creates a new kitty (list) item
 
 $('.input').on('submit', function (event) {
   event.preventDefault();
@@ -31,4 +33,9 @@ $('.input').on('submit', function (event) {
 
   $(this)[0].reset();
 
+});
+
+// Deletes a bad kitty
+$('.list').on('click', '#delete', function() {
+  $(this).parent().remove();
 });
