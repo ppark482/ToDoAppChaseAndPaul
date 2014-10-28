@@ -8,7 +8,6 @@ var Kitty = function(options) {
 
 var lil_kitty;
 var todolist = [];
-var kitty_count = todolist.length;
 
 var input_stuff;
 var item_template = $('#item_template').html();
@@ -34,10 +33,18 @@ $('.input').on('submit', function (event) {
 
   $(this)[0].reset();
 
+  // How many kittys?
+  if (todolist.length > 0) {
+    $('h6').html(todolist.length);
+  };
+
 });
 
 // Deletes a bad kitty
 $('.list').on('click', '#delete', function() {
   $(this).parent().remove();
 });
-// How many kittys?
+
+// if (kitty.deleted = true) {
+//
+// }
