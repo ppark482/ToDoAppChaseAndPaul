@@ -4,26 +4,33 @@
   'use strict';
 
   describe('To Do List', function () {
+
     var kitty;
-    // before each function runs, reset thing
-    beforeEach( function() {
+
+    beforeEach(function() {
       kitty = new Kitty();
     });
-    describe('kitty Creation', function () {
+
+    describe('kitty creation', function () {
 
       it('should be an instance of Kitty', function () {
         expect(kitty).to.be.an.instanceof(Kitty);
       });
-    });
+
+    }); //kitty creation
+
     describe('kitty properties', function () {
+
       it('should have completed of false', function() {
         expect(kitty.completed).to.equal(false);
       });
 
+    }); //kitty properties
 
-    });
-  });
+  }); //To Do List
+
 })();
+
 
 
 // Set up constructor
