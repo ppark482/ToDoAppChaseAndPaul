@@ -4,3 +4,13 @@ var Kitty = function(options) {
   this.task = options.task || 'Nothing was entered';
   this.elem = options.elem || {};
 };
+
+var todolist = [];
+var input_stuff;
+
+$('#submit').on('click', function (event) {
+  event.preventDefault();
+
+  input_stuff = $('#newItem').val();
+  $('.list').append("<li>" + input_stuff + "</li>");
+});

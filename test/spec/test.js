@@ -31,7 +31,16 @@
         expect(kitty.elem).to.be.an.object;
       });
     }); // kitty properties
-    
+
+    describe('New list data', function () {
+
+      it('should extract input data', function() {
+        expect(input_stuff).to.be.undefined;
+      });
+
+
+    }); // new list data
+
 
   }); //To Do List
 
