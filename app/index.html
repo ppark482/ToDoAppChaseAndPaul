@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-    <title>pairtodoapp</title>
+    <title>c&p's todo app</title>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- build:css styles/vendor.css -->
@@ -22,19 +22,13 @@
     <!-- endbuild -->
   </head>
   <body>
-
-    <div class="hero-unit">
-      <h1>'Allo, 'Allo!</h1>
-      <p>You now have</p>
-      <ul>
-        <li>HTML5 Boilerplate</li>
-        <li>Normalize CSS</li>
-        <li>Sass</li>
-        <li>Modernizr</li>
-        <li>Bourbon & Neat</li>
-        <li>UnderscoreJS</li>
-      </ul>
-      <p>Don't forget to update your readme file!!</p>
+    <div class="container">
+      <div class="listContainer">
+        <input id="newItem" placeholder="What do you need?" value=""/>
+        <button id="submit">Add</button>
+        <ul class="list">
+        </ul>
+      </div> <!-- end of list container -->
     </div>
 
     <!-- build:js scripts/vendor.js -->

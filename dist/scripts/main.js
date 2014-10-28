@@ -1,7 +1,6 @@
 var Kitty = function(options) {
   options = options || {};
-  completed = options.completed || false;
-   
+  this.completed = options.completed || false;
+  this.task = options.task || 'Nothing was entered';
+  this.elem = options.elem || {};
 };
-
-var kitty = new Kitty {};
