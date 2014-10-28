@@ -18,9 +18,23 @@ body {
   background-color: #eee;
   border-radius: 6px;
   padding: 60px;
-  h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
+}
+
+.input {
+  input {
+    width: 88%;
+    height: 35px;
+  }
+}
+
+.list {
+  list-style: none;
+  width: 475px;
+  height: 35px;
+  border: 1px solid;
+  button {
+    // display: none;
+    float: right;
+    margin: 9px 5px 0px 0px;
   }
 }
