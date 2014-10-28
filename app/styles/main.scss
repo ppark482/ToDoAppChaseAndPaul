@@ -28,10 +28,22 @@ body {
 }
 
 .list {
+  padding: 0;
+  li {
   list-style: none;
+  padding-left: 50px;
   width: 475px;
   height: 35px;
   border: 1px solid;
+  background-color: white;
+  margin-bottom: 5px;
+  img {
+    float: left;
+    height: 33px;
+    width: 40px;
+    margin-left: -49px;
+    }
+  }
   button {
     // display: none;
     float: right;
