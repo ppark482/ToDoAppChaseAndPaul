@@ -1,13 +1,15 @@
+var url = 'http://tiy-atl-fe-server.herokuapp.com/collections/zombiekitty';
+
 var Kitty = function(options) {
   options = options || {};
   this.completed = options.completed || false;
   this.deleted = options.deleted || false;
   this.task = options.task || 'Nothing was entered';
-  this.elem = options.elem || {};
+  // this.elem = options.elem || {};
 };
 
 var lil_kitty;
-var todolist = [];
+var todolist;
 
 var input_stuff;
 var item_template = $('#item_template').html();
@@ -15,10 +17,23 @@ var rendered = _.template(item_template);
 var count = 0;
 var doneCount = 0;
 
+// Grabbing all ToDo items and showing on page
+$.getJSON(url).done( function (data) {
+
+  todolist = data;
+
+  _.each(todolist, function (i) {
+    $('.list').append(rendered(i));
+  });
+
+});
+
+
 $('h5').html(count + ' ' + ' Zombie Kitties remaining');
 // Creates a new kitty (list) item
 $('.input').on('submit', function (event) {
   event.preventDefault();
+  var self = this;
 
   input_stuff = $('#newItem').val();
   // $('.list').append("<li>" + input_stuff + "</li>");
@@ -26,9 +41,27 @@ $('.input').on('submit', function (event) {
   lil_kitty = new Kitty ({
     completed: false,
     task: input_stuff,
-    elem: $(rendered({ task: input_stuff }))[0]
+    // elem: $(rendered({ task: input_stuff }))[0]
 
   }); //lil_kitty
+
+  //Send to our server
+    $.ajax({
+    type: 'POST',
+    url: url,
+    data: lil_kitty
+  }).done( function (data) {
+
+    //Add to todolist
+    todolist.push(data);
+
+    //Show our task on the page
+    $('.list').append(rendered(data));
+
+    //Reset my form
+    $(self)[0].reset();
+
+  });
 
   todolist.push(lil_kitty);
 
