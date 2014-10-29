@@ -35,7 +35,7 @@ $('.input').on('submit', function (event) {
 
   // How many kittys?
   if (todolist.length > 0) {
-    $('h6').html(todolist.length);
+    $('h5').html(todolist.length + ' ' + ' Zombie Kitties remaining');
   };
 
 });
