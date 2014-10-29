@@ -62,3 +62,9 @@ $('.list').on('click', '#delete', function() {
   count -=1;
   $('h5').html(count + ' ' + ' Zombie Kitties remaining');
 });
+
+//party kitty
+$('.party-kitty').hover(function () {
+  $(this).toggleClass('animated flip');
+  $(this).addClass('animated shake');
+});
