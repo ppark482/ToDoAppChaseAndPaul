@@ -3,9 +3,6 @@
 @import '../../bower_components/neat/app/assets/stylesheets/neat';
 
 // Custom Styles
-body {
-  background: url(../images/mult-cats.png);
-}
 
 .listContainer {
   margin: 50px auto 0 auto;
@@ -23,12 +20,6 @@ body {
     height: 80px;
     margin-top: -10px;
     margin-left: 80px;
-    &:hover {
-      width: 500px;
-      height: 500px;
-      margin-left: -15px;
-      transition-duration: 1s;
-    }
   }
   h2 {
     margin-top: 0;
