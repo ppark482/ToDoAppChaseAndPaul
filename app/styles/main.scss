@@ -17,12 +17,18 @@ body {
   border-radius: 6px;
   padding: 30px;
   padding-top: 20px;
-  img {
+  .party-kitty {
     position: absolute;
     width: 100px;
     height: 80px;
     margin-top: -10px;
     margin-left: 80px;
+    &:hover {
+      width: 500px;
+      height: 500px;
+      margin-left: -15px;
+      transition-duration: 1s;
+    }
   }
   h2 {
     margin-top: 0;
