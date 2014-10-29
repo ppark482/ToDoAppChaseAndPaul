@@ -44,17 +44,17 @@
         </div>
       </div> <!--continer-->
 
-    <script type="text/template" id="item_template">
-      <li class="animated bounceInLeft"><img src="../images/zombie-kitty.jpg" alt="" /><%= task %><button id="delete" class="delete">X</button></li>
-    </script>
+      <script type="text/template" id="item_template">
+        <li id="<% _id %>" class="animated bounceInLeft"><img src="../images/zombie-kitty.jpg" alt="" /><%= task %><button id="delete" class="delete">X</button></li>
+      </script>
 
         <script type="text/template" id="id_items">
-      <% if(completed == 'true') { %>
-        <li id="<%= _id %>" class="fin"><%= task %></li>
-      <% } else { %>
-        <li id="<%= _id %>" ><%= task %></li>
-      <% } %>
-    </script>
+            <% if(completed == 'true') { %>
+          <li id="<%= _id %>" class="fin animated bounceInLeft"><%= task %></li>
+            <% } else { %>
+          <li id="<%= _id %>" ><%= task %></li>
+            <% } %>
+        </script>
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
