@@ -50,11 +50,9 @@ body {
     height: 35px;
     outline: none;
   }
-  button {
-    &:hover {
+  button:hover {
       background-color: red;
       border: 1px solid;
-    }
   }
 }
 
@@ -109,4 +107,25 @@ h5 {
   height: 30px;
   background-color: HSLA(0, 0%, 76%, 1);
   padding: 6px;
+  &:hover {
+    color: red;
+  }
+}
+
+.filters {
+  margin-top: -55px;
+  list-style: none;
+  float: right;
+  font-size: 0.83em;
+  font-weight: bolder;
+  a {
+    color: black;
+  }
+  li {
+    float: right;
+    padding: 10px 10px 10px 5px;
+    &:hover {
+      color: red;
+    }
+  }
 }
