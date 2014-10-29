@@ -61,18 +61,17 @@ body {
   li {
   list-style: none;
   margin-left: 0.5px;
-  padding-left: 50px;
+  padding: 2px 0px 0px 50px;
   width: 474px;
   height: 35px;
   border: 1px solid HSLA(0, 0%, 76%, 1);
   background-color: white;
   margin-bottom: 5px;
-  text-overflow: ellipses;
   img {
     float: left;
     height: 33px;
     width: 40px;
-    margin-left: -49px;
+    margin: -2px 0px 0px -49px;
     }
   }
   button {
@@ -81,7 +80,7 @@ body {
     float: right;
     margin: 9px 5px 0px 0px;
     &:hover {
-      margin: 2px 2px 0px 0px;
+      margin: 0px 2px 0px 0px;
       height: 30px;
       width: 62px;
       border-radius: 5px;
@@ -107,6 +106,7 @@ h5 {
   height: 30px;
   background-color: HSLA(0, 0%, 76%, 1);
   padding: 6px;
+  overflow: hidden;
   &:hover {
     color: red;
   }
