@@ -12,6 +12,8 @@ var todolist = [];
 var input_stuff;
 var item_template = $('#item_template').html();
 var rendered = _.template(item_template);
+var count = 0;
+var doneCount = 0;
 
 // Creates a new kitty (list) item
 $('.input').on('submit', function (event) {
@@ -34,17 +36,25 @@ $('.input').on('submit', function (event) {
   $(this)[0].reset();
 
   // How many kittys?
-  if (todolist.length > 0) {
-    $('h6').html(todolist.length);
-  };
-
+  count += 1;
+  $('h6').html(count);
 });
 
+// Mark Item As Done
+$('ul').on('click', 'li', function (event) {
+  event.preventDefault();
+  $(this).addClass('completed');
+  doneCount += 1;
+});
+// Unmark Item as Done
+$('ul').on('click', '.completed', function (event) {
+  event.preventDefault();
+  $(this).removeClass('completed');
+  doneCount -= 1;
+});
 // Deletes a bad kitty
 $('.list').on('click', '#delete', function() {
-  $(this).parent().remove();
+  $(this).delay( 1000 ).parent().remove();
+  count -=1;
+  $('h6').html(count);
 });
-
-// if (kitty.deleted = true) {
-//
-// }
