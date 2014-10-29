@@ -43,21 +43,22 @@ $('.input').on('submit', function (event) {
 
 });
 
-// Mark Item As Done
+// Mark kitty As Done
 $('ul').on('click', 'li', function (event) {
   event.preventDefault();
-  $(this).addClass('completed');
+  console.log('clicked li')
+  $(this).css('background-color', 'green').addClass('completed');
   doneCount += 1;
 });
-// Unmark Item as Done
+// Unmark kitty as Done
 $('ul').on('click', '.completed', function (event) {
   event.preventDefault();
-  $(this).removeClass('completed');
+  $(this).css('background-color', '').removeClass('completed');
   doneCount -= 1;
 });
 // Deletes a bad kitty
 $('.list').on('click', '#delete', function() {
-  $(this).delay( 1000 ).parent().remove();
+  $(this).parent().remove();
   count -=1;
   $('h5').html(count + ' ' + ' Zombie Kitties remaining');
 });
