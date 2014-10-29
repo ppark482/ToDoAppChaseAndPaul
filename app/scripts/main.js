@@ -3,7 +3,7 @@ var url = 'http://tiy-atl-fe-server.herokuapp.com/collections/zombiekitty1';
 // --------------------------------------------------------------------------------------------------------------------------------------------
 var Kitty = function(options) {
   options = options || {};
-  this.deleted = options.deleted || false;
+  this.deleted = 'false';
   this.task = options.task || 'Nothing was entered';
   this.done = 'false';
 };
@@ -120,6 +120,21 @@ $('ul').on('click', '.completed', function (event) {
 // Deletes a bad kitty
 // --------------------------------------------------------------------------------------------------------------------------------------------
 $('.list').on('click', '#delete', function() {
+  event.preventDefault();
+
+  _.each(todolist, function(item) {
+
+    var ID = item._id;
+
+    if (item.deleted==='true') {
+      $.ajax({
+        type: 'DELETE',
+        url: url + "/" + ID,
+        data: item
+      });
+    };
+
+  });
   $(this).parent().remove();
   count -=1;
   $('h5').html(count + ' ' + ' Zombie Kitties remaining');
