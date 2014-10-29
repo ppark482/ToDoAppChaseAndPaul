@@ -80,9 +80,11 @@ $('.list').on('click', 'li', function (event) {
   if (modifier.done === 'true') {
     modifier.done = 'false';
     $(this).removeClass('done');
+    $(this).css('background-color','');
   } else {
     modifier.done = 'true';
     $(this).addClass('done');
+    $(this).css('background-color', 'HSLA(122, 98%, 22%, 1)');
   }
 
   $.ajax({
@@ -108,7 +110,7 @@ $('ul').on('click', '.completed', function (event) {
 
 // Deletes a bad kitty
 $('.list').on('click', '#delete', function() {
-  $(this).delay( 1000 ).parent().remove();
+  $(this).parent().remove();
   count -=1;
   $('h5').html(count + ' ' + ' Zombie Kitties remaining');
 });
