@@ -44,13 +44,13 @@
         </div>
       </div> <!--continer-->
 
-    <script type="text/template" id="item_template">
-      <li class="animated bounceInLeft"><img src="../images/zombie-kitty.jpg" alt="" /><%= task %><button id="delete" class="delete">X</button></li>
+      <script type="text/template" id="item_template">
+      <li id="<%= _id %>" class="animated bounceInLeft"><img src="../images/zombie-kitty.jpg" alt="" /><%= task %><button id="delete" class="delete">X</button></li>
     </script>
 
-        <script type="text/template" id="id_items">
-      <% if(completed == 'true') { %>
-        <li id="<%= _id %>" class="fin"><%= task %></li>
+    <script type="text/template" id="task_items">
+      <% if(done == 'true') { %>
+        <li id="<%= _id %>" class="done"><%= task %></li>
       <% } else { %>
         <li id="<%= _id %>" ><%= task %></li>
       <% } %>

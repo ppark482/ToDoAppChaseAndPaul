@@ -1,11 +1,10 @@
-var url = 'http://tiy-atl-fe-server.herokuapp.com/collections/zombiekitty';
+var url = 'http://tiy-atl-fe-server.herokuapp.com/collections/zombiekitty1';
 
 var Kitty = function(options) {
   options = options || {};
-  this.completed = options.completed || 'false';
   this.deleted = options.deleted || false;
   this.task = options.task || 'Nothing was entered';
-  // this.elem = options.elem || {};
+  this.done = 'false';
 };
 
 var lil_kitty;
@@ -69,23 +68,21 @@ $('.input').on('submit', function (event) {
 });
 
 // Modifier
-var modifier;
 $('.list').on('click', 'li', function (event) {
   event.preventDefault();
-});
 
-  var focus_id = $(this).attr('id');
+  var ID = $(this).attr('id');
 
   //Find the instance of my task
-  modifier = _.findWhere(todolist, { _id: focus_id });
+  var modifier = _.findWhere(todolist, { _id: ID });
 
   //If it's done, mark it undone, else mark it done
-  if (modifier.completed == 'true') {
-    modifier.completed = 'false';
-    $(this).removeClass('fin');
+  if (modifier.done === 'true') {
+    modifier.done = 'false';
+    $(this).removeClass('done');
   } else {
-    modifier.completed = 'true';
-    $(this).addClass('fin');
+    modifier.done = 'true';
+    $(this).addClass('done');
   }
 
   $.ajax({
@@ -93,6 +90,8 @@ $('.list').on('click', 'li', function (event) {
     url: url + "/" + modifier._id,
     data: modifier
   });
+
+}); //Modifier $(.list)
 
 // Mark Item As Done
 $('ul').on('click', 'li', function (event) {
