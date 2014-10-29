@@ -33,18 +33,19 @@ $('.input').on('submit', function (event) {
   }); //lil_kitty
   todolist.push(lil_kitty);
   // Send to our server
-  $.ajax({ // content is assumed to be JSON
-    type: 'POST',
-    url:  my_server,
-    data: lil_kitty // sends data in
-    }).done( function (data) {
-      $('.list').append(lil_kitty.elem);
-      $(self)[0].reset();
-  // render to todo
-  // this allows you to wait to send to server before adding to local arrays
-  // server creates the unique id, you want to add that to your arrays
-  });
-
+  // $.ajax({ // content is assumed to be JSON
+  //   type: 'POST',
+  //   url:  my_server,
+  //   data: lil_kitty // sends data in
+  //   }).done( function (data) {
+  //     $('.list').append(lil_kitty.elem);
+  //     $(self)[0].reset();
+  // // render to todo
+  // // this allows you to wait to send to server before adding to local arrays
+  // // server creates the unique id, you want to add that to your arrays
+  // });
+  $('.list').append(lil_kitty.elem);
+  $(self)[0].reset();
   // How many kittys?
   count += 1;
   $('h5').html(count + ' ' + ' Zombie Kitties remaining');
@@ -73,5 +74,4 @@ $('.list').on('click', '#delete', function() {
 //party kitty
 $('.party-kitty').hover(function () {
   $(this).toggleClass('animated shake');
-  $('.list').toggleClass('animated shake');
 });

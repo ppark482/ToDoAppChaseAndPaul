@@ -45,7 +45,7 @@
       </div> <!--continer-->
 
     <script type="text/template" id="item_template">
-      <li><img class="animated bounceInLeft" src="../images/zombie-kitty.jpg" alt="" /><%= task %><button id="delete">delete</button></li>
+      <li class="animated bounceInLeft"><img src="../images/zombie-kitty.jpg" alt="" /><%= task %><button id="delete" class="delete">X</button></li>
     </script>
 
     <!-- build:js scripts/vendor.js -->
@@ -56,6 +56,7 @@
     <!-- endbuild -->
 
         <!-- build:js scripts/main.js -->
+        <script src="scripts/forstyle.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>
