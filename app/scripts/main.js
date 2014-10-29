@@ -15,6 +15,7 @@ var rendered = _.template(item_template);
 var count = 0;
 var doneCount = 0;
 
+$('h5').html(count + ' ' + ' Zombie Kitties remaining');
 // Creates a new kitty (list) item
 $('.input').on('submit', function (event) {
   event.preventDefault();
@@ -38,11 +39,7 @@ $('.input').on('submit', function (event) {
   // How many kittys?
 
   count += 1;
-  $('h6').html(count);
-
-  if (todolist.length > 0) {
-    $('h5').html(todolist.length + ' ' + ' Zombie Kitties remaining');
-  };
+  $('h5').html(count + ' ' + ' Zombie Kitties remaining');
 
 });
 
@@ -62,5 +59,5 @@ $('ul').on('click', '.completed', function (event) {
 $('.list').on('click', '#delete', function() {
   $(this).delay( 1000 ).parent().remove();
   count -=1;
-  $('h6').html(count);
+  $('h5').html(count + ' ' + ' Zombie Kitties remaining');
 });
