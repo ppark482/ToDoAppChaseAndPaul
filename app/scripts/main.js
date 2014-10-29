@@ -2,7 +2,7 @@ var url = 'http://tiy-atl-fe-server.herokuapp.com/collections/zombiekitty';
 
 var Kitty = function(options) {
   options = options || {};
-  this.completed = options.completed || false;
+  this.completed = 'false';
   this.deleted = options.deleted || false;
   this.task = options.task || 'Nothing was entered';
   // this.elem = options.elem || {};
@@ -37,11 +37,10 @@ $('.input').on('submit', function (event) {
   var self = this;
 
   input_stuff = $('#newItem').val();
-  $('.list').append("<li>" + input_stuff + "</li>");
+
   lil_kitty = new Kitty ({
     completed: false,
     task: input_stuff,
-    // elem: $(rendered({ task: input_stuff }))[0]
 
   }); //lil_kitty
 
@@ -63,15 +62,37 @@ $('.input').on('submit', function (event) {
 
   });
 
-    // elem: $(rendered( {task: input_stuff} ))[0]
-
-  todolist.push(lil_kitty);
-
   // How many kittys?
   count += 1;
   $('h5').html(count + ' ' + ' Zombie Kitties remaining');
 
 });
+
+// Modifier
+var modifier;
+$('.list').on('click', 'li', function (event) {
+  event.preventDefault();
+});
+
+  var focus_id = $(this).attr('id');
+
+  //Find the instance of my task
+  modifier = _.findWhere(todolist, { _id: focus_id });
+
+  //If it's done, mark it undone, else mark it done
+  if (modifier.completed == 'true') {
+    modifier.completed = 'false';
+    $(this).removeClass('fin');
+  } else {
+    modifier.completed = 'true';
+    $(this).addClass('fin');
+  }
+
+  $.ajax({
+    type: 'PUT',
+    url: url + "/" + modifier._id,
+    data: modifier
+  });
 
 // Mark Item As Done
 $('ul').on('click', 'li', function (event) {
@@ -85,6 +106,7 @@ $('ul').on('click', '.completed', function (event) {
   $(this).removeClass('completed');
   doneCount -= 1;
 });
+
 // Deletes a bad kitty
 $('.list').on('click', '#delete', function() {
   $(this).delay( 1000 ).parent().remove();
