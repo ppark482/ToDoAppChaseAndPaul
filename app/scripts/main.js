@@ -51,28 +51,27 @@ $('.input').on('submit', function (event) {
 
 });
 
-// Mark kitty As Done
+// Mark Item As Done
 $('ul').on('click', 'li', function (event) {
   event.preventDefault();
-  console.log('clicked li')
-  $(this).css('background-color', 'green').addClass('completed');
+  $(this).addClass('completed');
   doneCount += 1;
 });
-// Unmark kitty as Done
+// Unmark Item as Done
 $('ul').on('click', '.completed', function (event) {
   event.preventDefault();
-  $(this).css('background-color', '').removeClass('completed');
+  $(this).removeClass('completed');
   doneCount -= 1;
 });
 // Deletes a bad kitty
 $('.list').on('click', '#delete', function() {
-  $(this).parent().remove();
+  $(this).delay( 1000 ).parent().remove();
   count -=1;
   $('h5').html(count + ' ' + ' Zombie Kitties remaining');
 });
 
 //party kitty
 $('.party-kitty').hover(function () {
-  $(this).toggleClass('animated flip');
-  $(this).addClass('animated shake');
+  $(this).toggleClass('animated shake');
+  $('.list').toggleClass('animated shake');
 });

@@ -23,26 +23,26 @@
     <!-- endbuild -->
   </head>
   <body>
-    <div class="container">
-      <div class="listContainer">
-        <img class="party-kitty" src="../images/party-kitty.png" alt="" />
-        <h2>Zombie Kitty<br>To-Do List</h2>
-        <form class="input">
-          <input id="newItem" placeholder=" What do you need?  Brains, etc." value=""/>
-          <button id="submit">Add</button>
-        </form> <!-- end of list container -->
-        <ul class="list">
-        </ul>
-      </div> <!--listContainer-->
-      <div id="belowList">
-        <h5></h5>
-        <ul class="filters">
-          <a href="#"><li id="clearCompleted">Clear Complete</li>
-          <li id="completed">Completed</li>
-          <li id="all">All</li></a>
-        </ul>
-      </div>
-    </div>
+      <div class="container">
+        <div class="listContainer">
+          <img class="party-kitty" src="../images/party-kitty.png" alt="" />
+          <h2>Zombie Kitty<br>To-Do List</h2>
+          <form class="input">
+            <input id="newItem" placeholder=" What do you need?  Brains, etc." value=""/>
+            <button id="submit">Add</button>
+          </form> <!-- end of list container -->
+          <ul class="list">
+          </ul>
+        </div> <!--listContainer-->
+        <div id="belowList">
+          <h5></h5>
+          <ul class="filters">
+            <a href="#"><li id="clearCompleted">Clear Complete</li>
+            <li id="completed">Completed</li>
+            <li id="all">All</li></a>
+          </ul>
+        </div>
+      </div> <!--continer-->
 
     <script type="text/template" id="item_template">
       <li><img class="animated bounceInLeft" src="../images/zombie-kitty.jpg" alt="" /><%= task %><button id="delete">delete</button></li>
