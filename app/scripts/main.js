@@ -36,8 +36,14 @@ $('.input').on('submit', function (event) {
   $(this)[0].reset();
 
   // How many kittys?
+
   count += 1;
   $('h6').html(count);
+
+  if (todolist.length > 0) {
+    $('h5').html(todolist.length + ' ' + ' Zombie Kitties remaining');
+  };
+
 });
 
 // Mark Item As Done
