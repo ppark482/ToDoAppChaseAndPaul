@@ -2,7 +2,7 @@ var url = 'http://tiy-atl-fe-server.herokuapp.com/collections/zombiekitty';
 
 var Kitty = function(options) {
   options = options || {};
-  this.completed = 'false';
+  this.completed = options.completed || 'false';
   this.deleted = options.deleted || false;
   this.task = options.task || 'Nothing was entered';
   // this.elem = options.elem || {};
