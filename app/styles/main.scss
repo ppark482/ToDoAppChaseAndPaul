@@ -146,7 +146,15 @@ h5 {
     }
   }
 }
+.allDone {
+  font-size: 40px;
+  color: white;
+  position: relative;
+  float: right;
+  display: block;
+  padding-left: 30%;
 
+}
 .completed { // for marking item as complete
   background-color: green;
 }

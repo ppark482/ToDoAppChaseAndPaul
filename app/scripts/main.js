@@ -98,10 +98,13 @@ $('.list').on('click', 'li', function (event) {
   if (modifier.done === 'true') {
     modifier.done = 'false';
     $(this).removeClass('done');
+    $('.allDone').css('color', 'HSLA(97, 57%, 68%, 1)');
     $(this).css('background-color','');
   } else {
     modifier.done = 'true';
     $(this).addClass('done');
+    // $(this).append('<div class="allDone">COMPLETED</div>');
+    $('.list').append(this);
     $(this).css('background-color', 'HSLA(122, 98%, 22%, 1)');
   }
   // ajax call to update completed status
