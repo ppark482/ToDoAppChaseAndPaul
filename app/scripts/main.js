@@ -24,7 +24,15 @@ $.getJSON(url).done( function (data) {
   todolist = data;
 
   _.each(todolist, function (i) {
-    $('.list').append(rendered(i));
+    if (i.done === 'true') {
+      count -= 1;
+    } else {
+      $('.list').append(rendered(i));
+      count = (todolist.length - count)
+    }
+
+    // count = (todolist.length);
+    $('h5').html(count + ' ' + ' Zombie Kitties remaining');
   });
 
 });
@@ -101,21 +109,23 @@ $('.list').on('click', 'li', function (event) {
     url: url + "/" + modifier._id,
     data: modifier
   });
+  count += 1;
+  $('h5').html(count + ' ' + ' Zombie Kitties remaining');
 
 }); //Modifier $(.list)
 
-// Mark Item As Done
-$('ul').on('click', 'li', function (event) {
-  event.preventDefault();
-  $(this).addClass('completed');
-  doneCount += 1;
-});
-// Unmark Item as Done
-$('ul').on('click', '.completed', function (event) {
-  event.preventDefault();
-  $(this).removeClass('completed');
-  doneCount -= 1;
-});
+// // Mark Item As Done
+// $('ul').on('click', 'li', function (event) {
+//   event.preventDefault();
+//   $(this).addClass('completed');
+//   doneCount += 1;
+// });
+// // Unmark Item as Done
+// $('ul').on('click', '.completed', function (event) {
+//   event.preventDefault();
+//   $(this).removeClass('completed');
+//   doneCount -= 1;
+// });
 
 // Deletes a bad kitty
 // --------------------------------------------------------------------------------------------------------------------------------------------
@@ -133,11 +143,10 @@ $('.list').on('click', '#delete', function() {
         data: item
       });
     };
-
+    count -= 1;
+    $('h5').html(count + ' ' + ' Zombie Kitties remaining');
   });
   $(this).parent().remove();
-  count -=1;
-  $('h5').html(count + ' ' + ' Zombie Kitties remaining');
 });
 
 // party kitty
