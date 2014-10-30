@@ -128,9 +128,10 @@ $('.list').on('click', 'li', function (event) {
 
 // Deletes a bad kitty
 // --------------------------------------------------------------------------------------------------------------------------------------------
-$('.list').on('click', '#delete', function(event) {
+$('#clearCompleted').on('click', function(event) {
   event.preventDefault();
-  $(this).parent().remove();
+  console.log('clicked');
+  $('.list').html('');
   _.each(todolist, function(item) {
     item.deleted = 'true';
     var ID = item._id;
@@ -144,7 +145,7 @@ $('.list').on('click', '#delete', function(event) {
     };
 
   });
-  count -= 1;
+  count = 0;
   $('h5').html(count + ' ' + ' Zombie Kitties remaining');
 });
 
