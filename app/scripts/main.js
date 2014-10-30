@@ -16,6 +16,7 @@ var item_template = $('#item_template').html();
 var rendered = _.template(item_template);
 var count = 0;
 var deleteCount = 0;
+var taskCompleted = 0;
 
 // Grabbing all ToDo items and showing on page
 // --------------------------------------------------------------------------------------------------------------------------------------------
@@ -31,11 +32,9 @@ $.getJSON(url).done( function (data) {
       $('.list').append(rendered(i));
       count = (todolist.length - deleteCount)
     }
-
-    // count = (todolist.length);
-    $('h5').html(count + ' ' + ' Zombie Kitties remaining');
   });
-
+  // count = (todolist.length);
+  $('h5').html(count + ' ' + ' Zombie Kitties remaining');
 });
 
 // List Item Count
@@ -113,7 +112,6 @@ $('.list').on('click', 'li', function (event) {
     url: url + "/" + modifier._id,
     data: modifier
   });
-
 }); //Modifier $(.list)
 
 // // Mark Item As Done
