@@ -1,4 +1,4 @@
-var url = 'http://tiy-atl-fe-server.herokuapp.com/collections/zombiekitty1';
+var url = 'http://tiy-atl-fe-server.herokuapp.com/collections/zombiekitty2';
 // Item Constructor
 // --------------------------------------------------------------------------------------------------------------------------------------------
 var Kitty = function(options) {
@@ -15,7 +15,7 @@ var input_stuff;
 var item_template = $('#item_template').html();
 var rendered = _.template(item_template);
 var count = 0;
-var doneCount = 0;
+var deleteCount = 0;
 
 // Grabbing all ToDo items and showing on page
 // --------------------------------------------------------------------------------------------------------------------------------------------
@@ -24,11 +24,12 @@ $.getJSON(url).done( function (data) {
   todolist = data;
 
   _.each(todolist, function (i) {
-    if (i.done === 'true') {
-      count -= 1;
-    } else {
+    if (i.deleted === 'true') {
+      deleteCount += 1;
+    } else if (i.deleted === 'false'){
+      count += 1;
       $('.list').append(rendered(i));
-      count = (todolist.length - count)
+      count = (todolist.length - deleteCount)
     }
 
     // count = (todolist.length);
@@ -109,8 +110,6 @@ $('.list').on('click', 'li', function (event) {
     url: url + "/" + modifier._id,
     data: modifier
   });
-  count += 1;
-  $('h5').html(count + ' ' + ' Zombie Kitties remaining');
 
 }); //Modifier $(.list)
 
@@ -129,11 +128,11 @@ $('.list').on('click', 'li', function (event) {
 
 // Deletes a bad kitty
 // --------------------------------------------------------------------------------------------------------------------------------------------
-$('.list').on('click', '#delete', function() {
+$('.list').on('click', '#delete', function(event) {
   event.preventDefault();
-
+  $(this).parent().remove();
   _.each(todolist, function(item) {
-
+    item.deleted = 'true';
     var ID = item._id;
 
     if (item.deleted==='true') {
@@ -143,10 +142,10 @@ $('.list').on('click', '#delete', function() {
         data: item
       });
     };
-    count -= 1;
-    $('h5').html(count + ' ' + ' Zombie Kitties remaining');
+
   });
-  $(this).parent().remove();
+  count -= 1;
+  $('h5').html(count + ' ' + ' Zombie Kitties remaining');
 });
 
 // party kitty
