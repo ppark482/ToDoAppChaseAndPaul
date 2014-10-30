@@ -2,11 +2,12 @@
 @import '../../bower_components/bourbon/dist/bourbon';
 @import '../../bower_components/neat/app/assets/stylesheets/neat';
 
+
 // Custom Styles
 .slime{
   position: absolute;
-  top: 32px;
-  left: 410px;
+  top: -20px;
+  left: 50px;
   img {
     width: 150px;
   }
@@ -24,6 +25,7 @@
   -webkit-box-shadow: 0px 0px 100px 3px rgba(0,0,0,0.55);
   -moz-box-shadow: 0px 0px 100px 3px rgba(0,0,0,0.55);
   box-shadow: 0px 0px 100px 3px rgba(0,0,0,0.55);
+  font-family: sans-serif;
   .party-kitty {
     position: absolute;
     width: 100px;
@@ -106,6 +108,7 @@
   width: 475px;
   margin: 0 auto;
   height: 80px;
+  font-style: Georgia;
 }
 
 h5 {
@@ -115,6 +118,7 @@ h5 {
   padding: 8px 0px 0px 5px;
   overflow: hidden;
   color: white;
+  font-style: Georgia;
   &:hover {
     color: red;
   }
@@ -127,6 +131,7 @@ h5 {
   float: right;
   font-size: 0.83em;
   font-weight: bolder;
+  font-style: Georgia;
   a {
     color: white;
   }
