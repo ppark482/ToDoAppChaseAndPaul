@@ -3,7 +3,14 @@
 @import '../../bower_components/neat/app/assets/stylesheets/neat';
 
 // Custom Styles
-
+.slime{
+  position: absolute;
+  top: 32px;
+  left: 410px;
+  img {
+    width: 150px;
+  }
+}
 .listContainer {
   margin: 50px auto 0 auto;
   width: 535px;
