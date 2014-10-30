@@ -104,28 +104,33 @@
 h5 {
   margin-top: -30px;
   height: 30px;
-  background-color: HSLA(0, 0%, 76%, 1);
-  padding: 6px;
+  background-color: HSLA(122, 98%, 22%, 1);
+  padding: 8px 0px 0px 5px;
   overflow: hidden;
+  color: white;
   &:hover {
     color: red;
   }
 }
 
 .filters {
-  margin-top: -55px;
+  height: 30px;
+  margin-top: -52px;
   list-style: none;
   float: right;
   font-size: 0.83em;
   font-weight: bolder;
   a {
-    color: black;
+    color: white;
   }
   li {
     float: right;
-    padding: 10px 10px 10px 5px;
+    padding: 8px 5px 8px 5px;
     &:hover {
       color: red;
+    }
+  li.on {
+    background-color: HSLA(97, 57%, 68%, 1);
     }
   }
 }
